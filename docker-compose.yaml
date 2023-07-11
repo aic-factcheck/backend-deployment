@@ -2,7 +2,7 @@ version: "3"
 
 services:
   frontend:
-    image: rastokopal/fact-checking-fe:1.0.0
+    image: rastokopal/fact-checking-fe:1.0.1
     restart: on-failure
     ports:
       - 3001:80
