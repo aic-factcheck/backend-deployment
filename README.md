@@ -4,13 +4,11 @@ Is deployed using dockerized images and docker-compose
 
 ## services deployed
 
-1. Nginx proxy
+1. Nginx proxy with frontend app inside
 
 2. Backend API service on route /api/v1
 
 3. MongoDB accessible locally
-
-4. Frontend app
 
 TODO:
 
