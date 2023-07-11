@@ -1,6 +1,15 @@
 version: "3"
 
 services:
+  frontend:
+    image: rastokopal/fact-checking-fe:1.0.0
+    ports:
+      - 3001:80
+    depends_on:
+      - api
+    networks:
+      - nesjs-network
+
   api:
     image: rastokopal/fact-checking-api:1.0.0
     ports:
@@ -38,6 +47,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - api
+      - frontend
     networks:
       - nesjs-network
 
