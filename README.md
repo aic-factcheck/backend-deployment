@@ -15,12 +15,24 @@ Is deployed using dockerized images and docker-compose
 5. web-scrapping service
 
 <!-- ```bash
-# Run !!!!ONLY ONCE!!!
-# Run certbot before the deployment - to obtain the initial SSL certificate
+# Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
+# first in file nginx.conf comment SSL server section to generate first SSL certificate
+$ # server {
+$ #    listen 443 ssl;
+$ #    # ...
+$ #}
+
+# Run the nging proxy - for the certbot to be able to generate cert
+$ docker-compose up -d
+
+# Now generate the initial certificate
 # You should replace example-email@example.com with your email address.
 # This command will obtain the certificate and store it in the ./certbot/conf directory.
-# The certbot service in docker-compose will automatically renew the certificate every 12 hours.
 $ docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     -d factcheck.fel.cvut.cz --email example-email@example.com --agree-tos --no-eff-email --force-renewal" certbot
+
+# Now after succefully generated SSL certificate, uncomment back nging.conf
+# Now run all the containers - they will use HTTPS now
+$ docker-compose up -d
 ``` -->
