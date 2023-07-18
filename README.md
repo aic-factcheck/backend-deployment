@@ -23,7 +23,7 @@ Is deployed using dockerized images and docker-compose
 #    # ...
 #}
 
-# Run the nging proxy service (within compose) - for the certbot to be able to generate cert
+# Run the nginx proxy service (within compose) - for the certbot to be able to generate cert
 $ docker-compose up -d
 
 # Now generate the initial certificate
