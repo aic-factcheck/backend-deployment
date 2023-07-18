@@ -16,13 +16,14 @@ Is deployed using dockerized images and docker-compose
 
 ```bash
 # Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
-# first in file nginx.conf comment SSL server section to generate first SSL certificate
-$ # server {
-$ #    listen 443 ssl;
-$ #    # ...
-$ #}
 
-# Run the nging proxy - for the certbot to be able to generate cert
+# first in file nginx.conf comment SSL server section to generate first SSL certificate
+# server {
+#    listen 443 ssl;
+#    # ...
+#}
+
+# Run the nging proxy service (within compose) - for the certbot to be able to generate cert
 $ docker-compose up -d
 
 # Now generate the initial certificate
@@ -32,7 +33,11 @@ $ docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     -d factcheck.fel.cvut.cz --email example-email@example.com --agree-tos --no-eff-email --force-renewal" certbot
 
-# Now after succefully generated SSL certificate, uncomment back nging.conf
+# Now after succefully generated SSL certificate, uncomment back nginx.conf to the original state
+
+# Shutdown the whole docker-compose, so it uses updated config file
+$ docker-compose down
+
 # Now run all the containers - they will use HTTPS now
 $ docker-compose up -d
 ```
