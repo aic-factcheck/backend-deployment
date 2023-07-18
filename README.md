@@ -10,9 +10,9 @@ Is deployed using dockerized images and docker-compose
 
 3. MongoDB accessible locally
 
-4. SSL certificate
+4. Certbot for SSL certificate renewal
 
-5. web-scrapping service
+6. web-scrapping service
 
 ```bash
 # Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
