@@ -14,7 +14,7 @@ Is deployed using dockerized images and docker-compose
 
 5. web-scrapping service
 
-<!-- ```bash
+```bash
 # Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
 # first in file nginx.conf comment SSL server section to generate first SSL certificate
 $ # server {
@@ -35,4 +35,4 @@ $ docker-compose run --rm --entrypoint "\
 # Now after succefully generated SSL certificate, uncomment back nging.conf
 # Now run all the containers - they will use HTTPS now
 $ docker-compose up -d
-``` -->
+```
