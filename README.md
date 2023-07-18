@@ -10,12 +10,17 @@ Is deployed using dockerized images and docker-compose
 
 3. MongoDB accessible locally
 
-TODO:
+4. SSL certificate
 
-5. SSL certificate
-6. web-scrapping service
+5. web-scrapping service
 
 <!-- ```bash
-# run containers locally
-$ npm run start
+# Run !!!!ONLY ONCE!!!
+# Run certbot before the deployment - to obtain the initial SSL certificate
+# You should replace example-email@example.com with your email address.
+# This command will obtain the certificate and store it in the ./certbot/conf directory.
+# The certbot service in docker-compose will automatically renew the certificate every 12 hours.
+$ docker-compose run --rm --entrypoint "\
+  certbot certonly --webroot -w /var/www/certbot \
+    -d factcheck.fel.cvut.cz --email example-email@example.com --agree-tos --no-eff-email --force-renewal" certbot
 ``` -->
