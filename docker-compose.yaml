@@ -36,6 +36,10 @@ services:
       - API_PREFIX=${API_PREFIX}
       - AUTH_JWT_SECRET=${AUTH_JWT_SECRET}
       - AUTH_JWT_TOKEN_EXPIRES_IN=${AUTH_JWT_TOKEN_EXPIRES_IN}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_USERNAME=${EMAIL_USERNAME}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
     depends_on:
       - mongodb
     networks:
