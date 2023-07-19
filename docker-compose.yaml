@@ -24,7 +24,7 @@ services:
       - fact-checking-network
 
   api:
-    image: rastokopal/fact-checking-api:1.0.0
+    image: rastokopal/fact-checking-api
     ports:
       - 3000:3000
     environment:
