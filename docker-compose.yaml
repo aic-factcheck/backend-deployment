@@ -56,8 +56,13 @@ services:
     image: mongo:latest
     environment:
       - MONGODB_DATABASE=${MONGO_DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_NAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PWD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
     ports:
       - "27017:27017"
+    command: [--auth]
+    restart: always
     volumes:
       - mongodb_data:/data/db
     networks:
