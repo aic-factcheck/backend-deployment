@@ -28,11 +28,11 @@ services:
     ports:
       - 3000:3000
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/fact_checking_be
-      - MONGO_URI_TEST=mongodb://mongodb:27017/fact_checking_be_test
-      - NODE_ENV=production
+      - MONGO_URI=${MONGO_URI}
+      - MONGO_URI_TEST=${MONGO_URI_TEST}
+      - NODE_ENV=${NODE_ENV}
       - APP_NAME=${APP_NAME}
-      - APP_PORT=3000
+      - APP_PORT=${APP_PORT}
       - API_PREFIX=${API_PREFIX}
       - AUTH_JWT_SECRET=${AUTH_JWT_SECRET}
       - AUTH_JWT_TOKEN_EXPIRES_IN=${AUTH_JWT_TOKEN_EXPIRES_IN}
