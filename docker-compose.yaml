@@ -17,10 +17,6 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    environment:
-      - REACT_APP_API_BASE=${REACT_APP_API_BASE}
-      - PORT=${PORT}
-      - REACT_APP_API_GET_TEXT=${REACT_APP_API_GET_TEXT}
     restart: on-failure
     depends_on:
       - api
