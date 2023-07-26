@@ -18,9 +18,9 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     environment:
-      - REACT_APP_API_BASE: /api/v1
-      - PORT: 3001
-      - REACT_APP_API_GET_TEXT: /extract
+      - REACT_APP_API_BASE:/api/v1
+      - PORT:3001
+      - REACT_APP_API_GET_TEXT:/extract
     restart: on-failure
     depends_on:
       - api
