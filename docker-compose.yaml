@@ -68,6 +68,14 @@ services:
     networks:
       - fact-checking-network
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+
 volumes:
   mongodb_data:
 
