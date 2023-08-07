@@ -27,22 +27,8 @@ services:
     image: rastokopal/fact-checking-api:latest
     ports:
       - 3000:3000
-    environment:
-      - MONGO_URI=${MONGO_URI}
-      - MONGO_URI_TEST=${MONGO_URI_TEST}
-      - NODE_ENV=${NODE_ENV}
-      - APP_NAME=${APP_NAME}
-      - APP_PORT=${APP_PORT}
-      - API_PREFIX=${API_PREFIX}
-      - AUTH_JWT_SECRET=${AUTH_JWT_SECRET}
-      - AUTH_JWT_TOKEN_EXPIRES_IN=${AUTH_JWT_TOKEN_EXPIRES_IN}
-      - EMAIL_PORT=${EMAIL_PORT}
-      - EMAIL_HOST=${EMAIL_HOST}
-      - EMAIL_USERNAME=${EMAIL_USERNAME}
-      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    env_file:
+      - .env
     depends_on:
       - mongodb
     networks:
