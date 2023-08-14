@@ -10,5 +10,3 @@ elasticsearch.hosts: ['http://elasticsearch:9200']
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 ## X-Pack security credentials
 # in docker-compose
-elasticsearch.username: '${ELASTIC_SEARCH_USERNAME}'
-elasticsearch.password: '${ELASTIC_SEARCH_PWD}'
