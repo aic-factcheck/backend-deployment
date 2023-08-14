@@ -8,6 +8,7 @@ services:
       - transport.host=localhost
       - http.host=0.0.0.0
       - xpack.security.enabled=true
+      - xpack.monitoring.collection.enabled=true
       - ELASTIC_PASSWORD=${ELASTIC_SEARCH_PWD}
       - KIBANA_PASSWORD=${ELASTIC_SEARCH_PWD}
     volumes:
@@ -23,14 +24,17 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=${ELASTIC_SEARCH_USERNAME}
       - ELASTICSEARCH_PASSWORD=${ELASTIC_SEARCH_PWD}
-      - SERVER_BASEPATH=/kibana
-      - SERVER_REWRITEBASEPATH=true
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
     networks:
       - fact-checking-network
+    volumes:
+      - type: bind
+        source: ./kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
 
   certbot:
     image: certbot/certbot
