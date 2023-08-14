@@ -17,7 +17,7 @@ Is deployed using dockerized images and docker-compose
 ```bash
 # Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
 
-# first in file nginx.conf comment SSL server section to generate first SSL certificate
+# first in file ./nginx/nginx.conf comment SSL server section to generate first SSL certificate
 # server {
 #    listen 443 ssl;
 #    # ...
