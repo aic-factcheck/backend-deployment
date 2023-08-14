@@ -12,7 +12,7 @@ Is deployed using dockerized images and docker-compose
 
 4. Certbot for SSL certificate renewal
 
-6. web-scrapping service
+5. web-scrapping service
 
 ```bash
 # Run all - !!!!ONLY ONCE!!! -> in root directory of the repository
@@ -41,3 +41,5 @@ $ docker-compose down
 # Now run all the containers - they will use HTTPS now
 $ docker-compose up -d
 ```
+
+## TODO.. setup elasticsearch user, kibana user
