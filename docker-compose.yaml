@@ -21,7 +21,6 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:8.1.2
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=${ELASTIC_SEARCH_USERNAME}
       - ELASTICSEARCH_PASSWORD=${ELASTIC_SEARCH_PWD}
     ports:
