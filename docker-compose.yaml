@@ -23,6 +23,8 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=${ELASTIC_SEARCH_USERNAME}
       - ELASTICSEARCH_PASSWORD=${ELASTIC_SEARCH_PWD}
+      - SERVER_BASEPATH=/kibana
+      - SERVER_REWRITEBASEPATH=true
     ports:
       - "5601:5601"
     depends_on:
