@@ -31,10 +31,7 @@ services:
     networks:
       - fact-checking-network
     volumes:
-      - type: bind
-        source: ./kibana/config/kibana.yml
-        target: /usr/share/kibana/config/kibana.yml
-        read_only: true
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
 
   certbot:
     image: certbot/certbot
