@@ -42,28 +42,17 @@ $ docker-compose down
 $ docker-compose up -d
 ```
 
-## TODO.. setup elasticsearch user, kibana user
-
-```bash
-curl -X POST "localhost:9200/_security/user/new_kibana_user" -H "Content-Type: application/json" -u elastic:${ELASTIC_SEARCH_PWD} -d '{
-  "password" : "new_password",
-  "roles" : [ "kibana_system" ],
-  "full_name" : "New Kibana User",
-  "email" : "kibanauser@example.com",
-  "metadata" : { "intelligence" : 7 }
-}'
-```
-
-or run inside elasticsearch service:
+## Setup elasticsearch user for kibana
 
 ```bash
 # attach to container
 docker exec -it backend-deployment_elasticsearch_1 /bin/sh
 
 # add user
-elasticsearch-users useradd <usrname> -p <pwd> -r kibana_system,admin,kibana,user,monitoring,kibana_user
+# Note: do NOT add all roles. Create a new role that will have access to selected index and add the role to the user.
+elasticsearch-users useradd <usrname> -p <pwd> -r kibana_system,admin,kibana,user,monitoring,kibana_user,superuser
 
-# add roles
+# add roles example
 elasticsearch-users roles <usrname> -a user,index_admin,data_reader,data_writer
 
 #restart kibana
